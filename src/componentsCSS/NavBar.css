@@ -1,0 +1,27 @@
+/*
+  * Colores para el sitio
+  * Lavender Biscuit : #9799C2
+  * Mauvealuptuous : #C5BCD7
+  * Nice : #F4ECDC
+  * Sunlit counter Rose : #F1D2B8
+  * Lung Capacity : #E5AFA0
+*/
+
+#navBar{
+    background-color: #9799C2;
+    padding: 8px;
+}
+
+#logoNav{
+    text-align: left !important;
+    margin-right: 25%;
+}
+
+#navBar a{
+    color: #F4ECDC;
+    font-size: 25px;
+}
+
+#navBar li{
+    padding-top: 10px;
+}
