@@ -1,0 +1,13 @@
+
+#logoCompras img{
+    position: relative;
+}
+
+#carritoCant{
+    color: #e50070;
+    position: absolute;
+    top: 24px;
+    right:63px;
+    font-size: 18px;
+    font-family: cursive;
+}
