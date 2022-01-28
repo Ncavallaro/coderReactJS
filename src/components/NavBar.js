@@ -23,6 +23,12 @@ const NavBar = () => {
                 <li className="nav-item">
                     <a className="nav-link" href="#" >Vender</a>
                 </li>
+                <li className="nav-item" id="btonRegistro">
+                    <a className="nav-link" href="#" >Crear tu cuenta</a>
+                </li>
+                <li className="nav-item" id="btonLogin">
+                    <a className="nav-link" href="#" >Ingresar</a>
+                </li>
             </ul>
         </div>
     );
