@@ -23,5 +23,14 @@
 }
 
 #navBar li{
-    padding-top: 10px;
+    padding-top: 12px;
+}
+
+#btonRegistro{
+    margin-left: 10%;
+}
+
+#logoCompras {
+    margin-top: 15px;
+    margin-left: 15px;
 }
