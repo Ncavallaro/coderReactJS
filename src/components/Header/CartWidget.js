@@ -1,4 +1,4 @@
-import '../componentsCSS/CartWidget.css';
+import '../../componentsCSS/Header/CartWidget.css';
 
 
 const CartWidget = (props) =>{
