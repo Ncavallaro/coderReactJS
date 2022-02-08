@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../componentsCSS/NavBar.css';
-import logoPrincipal from '../image/iconoTienda.png';
-import compras from '../image/compras.png'
-import CartWidget from '../components/CartWidget'
+import '../../componentsCSS/Header/NavBar.css';
+import logoPrincipal from '../../image/iconoTienda.png';
+import compras from '../../image/compras.png'
+import CartWidget from '../Header/CartWidget'
 
 
 const NavBar = () => {
