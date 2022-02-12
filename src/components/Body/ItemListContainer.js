@@ -7,7 +7,7 @@ const ItemListContainer = (props) => {
   //const [count , setCount ] = useState("");
   //const onAdd = (count) => setCount(count);
   const onAdd = (cant) => {
-    console.log("Hola" + cant)
+    alert(cant)
 }
   //<ItemCount initial={1} stock={5} onclick={onAdd()} val={count} />
 
