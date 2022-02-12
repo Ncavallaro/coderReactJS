@@ -1,32 +1,31 @@
 import { useEffect, useState } from 'react';
 import '../../componentsCSS/Body/ItemCount.css';
 
-const  ItemCount = () =>{
-
-    const valMin = 1;
-    const valMax = 5;
+export default function ItemCount(props) {
     
-    const [cant, setValoraciones] = useState(0);
+    const [cant, setValoraciones] = useState(1);
 
-    const increment = () => {
-        if( cant < valMax ){
+   const increment = () => {
+        if( cant < props.stock ){
             setValoraciones(cant +1 )
+            
         }
     }
 
     const decrement = () => {
-        if( valMin < cant ){
+        if( props.initial < cant ){
             setValoraciones(cant -1 )
         }
     }
 
     //cuando incia el componente
-    useEffect(() => {
-        setValoraciones(valMin )
-    },[])  
+//    useEffect(() => {
+//        setValoraciones(props.initial )
+//    },[])  
 
     //para actualizar el componenete
     useEffect(() => {
+        console.log(cant)
     },[cant])
 
     return (
@@ -37,12 +36,9 @@ const  ItemCount = () =>{
                 <input type="text" className="large" placeholder="" value={cant} id='inputCant'></input>
                 <button className="btn btn-outline-secondary" type="button" onClick={increment}>+</button>
                 <div>
-                    <button className="btn btn-primary" type="button" id='btonAgregar'>Agregar al carrito</button>
+                    <button className="btn btn-primary" type="button" id='btonAgregar' onClick={() => props.clicked(cant)}>Agregar al carrito</button>
                 </div>
-               
             </div>
         </div>
     );
 }
-
-export default ItemCount;
