@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer titulo="Bienvenidos a Tienda de emprendedores"/>
+      <ItemListContainer titulo="Bienvenidos a Viajes cava"/>
     </>
   );
 }

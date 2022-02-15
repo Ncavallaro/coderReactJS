@@ -1,0 +1,24 @@
+.item{
+    margin: 1%;
+    display: inline-grid;
+    width: 30%;
+}
+
+.item h3{
+    font-size: 20px;
+}
+
+.item figure img{
+    width: 500px;
+    border-radius: 8px;
+}
+
+.btnDetalle {
+    width: 30%;
+    background: #C5BCD7;
+    border-color: #9799C2;
+    border-radius: 5px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+
+}

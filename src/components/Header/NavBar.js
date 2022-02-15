@@ -11,7 +11,7 @@ const NavBar = () => {
              
             <ul className="nav justify-content-center"  id='navBar'>
                 <a className="navbar-brand" href="#" id='logoNav'>
-                    <img src={logoPrincipal} alt="" width="80" height="80" /> Emprendedores
+                    <img src={logoPrincipal} alt="" width="80" height="80" /> CAVA
                 </a>
                 <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">Negocios</a>
