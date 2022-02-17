@@ -1,0 +1,48 @@
+.item{
+    margin: 1%;
+    display: inline-block;
+}
+
+.tituloCenter {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.tituloCenter h3 {
+    font-size: 45px;
+}
+
+.item figure img{
+    width: 800px;
+    border-radius: 8px;
+}
+
+.imgDetail{
+    display: flex;
+}
+
+.imgDetail div {
+    width: 48%;
+}
+
+.descriptionDetail {
+    width: 40%;
+}
+
+.imgDetail h4{
+    font-size: 45px;
+    margin-top: 20px;
+}
+
+.imgDetail p{
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.imgDetail p b {
+    font-size: 27px;
+}
+
+.inputStock {
+    width: 206px !important;
+}
