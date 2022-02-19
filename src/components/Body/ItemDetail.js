@@ -32,7 +32,7 @@ const ItemDetail = (props) => {
                 </div>
         </article>
 
-        <ItemCount stock={5} initial={1} clicked={() => onAdd}/>
+        <ItemCount stock={5} initial={1} clicked={onAdd}/>
         </>
     )
 }

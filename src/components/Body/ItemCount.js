@@ -29,7 +29,7 @@ export default function ItemCount(props) {
 
     return (
         <div className='container'>
-            <h3>Camisa</h3>
+            <h3>Viaje</h3>
             <div className="input-group mb-3">
                 <button className="btn btn-outline-secondary" type="button" onClick={decrement}>-</button>
                 <input type="text" className="large" placeholder="" value={cant} id='inputCant'></input>
