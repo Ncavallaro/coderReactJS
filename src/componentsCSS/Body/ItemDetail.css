@@ -1,4 +1,4 @@
-.item{
+.itemDetail{
     margin: 1%;
     display: inline-block;
 }
@@ -12,7 +12,7 @@
     font-size: 45px;
 }
 
-.item figure img{
+#imgDetail img{
     width: 800px;
     border-radius: 8px;
 }

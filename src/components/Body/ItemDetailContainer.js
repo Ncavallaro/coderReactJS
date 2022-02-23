@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail";
 import Data from '../Data';
 
@@ -6,6 +7,7 @@ import Data from '../Data';
 const ItemDetailContainer = () => {
 
     const [trips , setTrips ] = useState("");
+    const { id } = useParams();
 
       //implementacion de promesa
         const listTrip = (timeout, data) => {
@@ -21,10 +23,12 @@ const ItemDetailContainer = () => {
         };
 
   listTrip(2000,Data)
-    .then((data)=> setTrips(data[0]) )
-    .then((data)=> console.log(data) )
+    .then((data)=> setTrips(data[id -1 ]) )
     .catch((error) => console.log(error));
 
+    //para actualizar el componenete
+    useEffect(() => {
+    },[id])
 
     return (
         <>
