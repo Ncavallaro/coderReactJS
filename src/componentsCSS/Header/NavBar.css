@@ -15,6 +15,7 @@
 #logoNav{
     text-align: left !important;
     margin-right: 25%;
+    text-decoration: none;
 }
 
 #navBar a{
@@ -33,4 +34,20 @@
 #logoCompras {
     margin-top: 15px;
     margin-left: 15px;
+}
+
+#liEspaña{
+    text-decoration: none;
+}
+
+#liEuropa{
+    text-decoration: none;
+}
+
+#liAsia{
+    text-decoration: none;
+}
+
+#liMarruecos{
+    text-decoration: none;
 }

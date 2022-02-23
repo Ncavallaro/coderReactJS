@@ -15,7 +15,7 @@ const data = [
     },
     {
       id: 2,
-      name: "Circuito – tour por la costa cantabrica desde BarcelonaA",
+      name: "Circuito – tour por la costa cantabrica desde Barcelona",
       stock: 20,
       price: 140,
       descrption: "Tour por el Norte de España con salida desde Barcelona (también desde Madrid), para descubrir el norte de la Península Ibérica que encierra una gran diversidad paisajística: acantilados abruptos, pequeñas islas, estuarios profundos, espaciosas bahías y preciosas playas, pero también un importante conjunto de monumentos y bienes culturales. Viajes al Norte de España saliendo desde Barcelona.",

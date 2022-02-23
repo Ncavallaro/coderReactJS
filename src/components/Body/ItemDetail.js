@@ -8,7 +8,7 @@ const onAdd = (cant) => {
 const ItemDetail = (props) => {
     return(
         <>
-            <article className='item'>
+            <article className='itemDetail'>
                 <div className="tituloCenter">
                     <h3>{props.title}</h3>
                 </div>
