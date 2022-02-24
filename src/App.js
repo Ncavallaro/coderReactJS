@@ -16,13 +16,13 @@ function App() {
         <Route 
           path="/"
           element={
-            <ItemListContainer titulo="Cava Viajes "/>
+            <ItemListContainer/>
           }
         ></Route>
         <Route 
           path="/category/:idCategory"
           element={
-            <ItemListContainer titulo="Cava Viajes"/>
+            <ItemListContainer/>
           }
         ></Route>
         <Route 

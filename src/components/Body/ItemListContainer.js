@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
   const [trips , setTrips ] = useState("");
   const { idCategory } = useParams();
@@ -32,10 +32,7 @@ const ItemListContainer = (props) => {
     },[idCategory])
   
     return (
-      <>
-        <br />
-        <h1>{props.titulo}</h1>
-        
+      <>       
         <ItemList trips={trips}/>
       </>
     );
