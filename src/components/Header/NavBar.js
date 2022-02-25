@@ -45,8 +45,10 @@ const NavBar = () => {
                     <li className="nav-item" id="btonLogin">
                         <a className="nav-link" href="#" >Ingresar</a>
                     </li>
-                </Link>                 
-                <CartWidget imagen={compras} cant={5} />
+                </Link> 
+                <Link to='/cart' id="btonLogin" >                
+                    <CartWidget imagen={compras} cant={5} />
+                </Link>
             </ul>
         </div>
     );

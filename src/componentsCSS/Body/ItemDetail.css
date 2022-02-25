@@ -46,3 +46,14 @@
 .inputStock {
     width: 206px !important;
 }
+
+#btonCarrito Button {
+    float: right;
+    margin-right: 5%
+
+}
+
+.itemCount{
+    float: right;
+    margin-right: 5%
+}

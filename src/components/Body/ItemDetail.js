@@ -1,11 +1,29 @@
-import ItemCount from "./ItemCount";
 import '../../componentsCSS/Body/ItemDetail.css';
+import ItemCount from "./ItemCount";
+import Modal from "./Modal";
+import { useEffect, useState } from 'react';
+import Checkout from '../Header/Checkout';
 
-const onAdd = (cant) => {
-    alert(cant)
-  }
 
 const ItemDetail = (props) => {
+
+    const [open, setOpen] = useState(false);
+    const [cant, setCant] = useState();
+
+    const onAdd = (cant) => {
+        alert('¿ Estas seguro de agregar ' + cant + ' viajes ?')
+        setCant(cant)
+    }
+
+    const handleClose = () => setOpen(false);
+
+    useEffect(() => {
+    },[cant])
+    //TODO: Cambiar ese alert por una modal
+    //TODO: Cuando le doy al boton ok de la modal, tengo que verificar si cant mas > 0 y ocultar el componenete y mostrar el componente Checkout
+    //TODO: Min 01:10:00
+    console.log(cant)
+
     return(
         <>
             <article className='itemDetail'>
@@ -32,9 +50,21 @@ const ItemDetail = (props) => {
                 </div>
         </article>
 
-        <ItemCount stock={5} initial={1} clicked={onAdd}/>
+        {
+            cant === undefined || 0 ?
+            <ItemCount stock={5} initial={1} clicked={onAdd}/> : 
+            <Checkout /> 
+        }
+       
+       
+        
         </>
     )
 }
 
 export default ItemDetail;
+
+
+/**
+ *  <Modal open={open} onClose={handleClose} />
+ */
