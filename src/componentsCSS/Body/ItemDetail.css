@@ -12,7 +12,7 @@
     font-size: 45px;
 }
 
-#imgDetail img{
+.imgDetail figure img{
     width: 800px;
     border-radius: 8px;
 }
@@ -45,4 +45,15 @@
 
 .inputStock {
     width: 206px !important;
+}
+
+#btonCarrito Button {
+    float: right;
+    margin-right: 5%
+
+}
+
+.itemCount{
+    float: right;
+    margin-right: 5%
 }

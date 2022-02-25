@@ -3,7 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './components/Header/NavBar';
 import ItemListContainer from './components/Body/ItemListContainer';
 import ItemDetailContainer from './components/Body/ItemDetailContainer';
+import Cart from './components/Header/Cart';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 
 
@@ -16,13 +18,13 @@ function App() {
         <Route 
           path="/"
           element={
-            <ItemListContainer titulo="Cava Viajes "/>
+            <ItemListContainer/>
           }
         ></Route>
         <Route 
           path="/category/:idCategory"
           element={
-            <ItemListContainer titulo="Cava Viajes"/>
+            <ItemListContainer/>
           }
         ></Route>
         <Route 
@@ -31,15 +33,15 @@ function App() {
             <ItemDetailContainer />
           }
         ></Route>
+        <Route 
+          path="/cart"
+          element={
+            <Cart />
+          }
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
 export default App;
-
-
-/*
-<ItemListContainer titulo="Bienvenidos a Viajes cava"/>
-<ItemDetailContainer/>
-*/ 

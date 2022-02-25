@@ -1,5 +1,7 @@
 import '../../componentsCSS/Body/ItemList.css';
 import Item from '../Body/Item';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 const ItemList = (props) =>{    
@@ -18,7 +20,11 @@ const ItemList = (props) =>{
                     />
                 ))
             ):(
-                <span>Cargando...</span>
+                <div className='center'>
+                <Box sx={{ width: '100%'}} id="box">
+                    <LinearProgress />
+                </Box>
+            </div>  
             )}
         </div>
     )

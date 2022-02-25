@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail";
 import Data from '../Data';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 
 const ItemDetailContainer = () => {
@@ -32,15 +34,24 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <ItemDetail 
-            key={trips.id} 
-            title={trips.name}
-            img={trips.img} 
-            price={trips.price} 
-            descrption= {trips.descrption}
-            includ={trips.includ}
-            stock={trips.stock}
-            />
+            {
+                trips.id > 0 ? (
+                        <ItemDetail 
+                        key={trips.id} 
+                        title={trips.name}
+                        img={trips.img} 
+                        price={trips.price} 
+                        descrption= {trips.descrption}
+                        includ={trips.includ}
+                        stock={trips.stock}
+                        />
+            ):(
+            <div className='center'>
+                <Box sx={{ width: '100%'}} id="box">
+                    <LinearProgress />
+                </Box>
+            </div>    
+            )}
         </>
     )
 }
