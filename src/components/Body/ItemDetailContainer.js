@@ -37,8 +37,8 @@ const ItemDetailContainer = () => {
             {
                 trips.id > 0 ? (
                         <ItemDetail 
-                        key={trips.id} 
-                        title={trips.name}
+                        id={trips.id} 
+                        name={trips.name}
                         img={trips.img} 
                         price={trips.price} 
                         descrption= {trips.descrption}
