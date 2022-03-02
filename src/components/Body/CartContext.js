@@ -9,16 +9,26 @@ const CartContextProvider = ({children}) =>{
     const [cartList, setCartList] = useState([])
 
     const addToCart = (item, cant) => {
-        setCartList([
-            ...cartList,
-            {
-            id: item.id,
-            name: item.name,
-            stock: item.stock,
-            price: item.price,
-            img: item.img,
-            cant: cant
-        }])
+        const itemIs = cartList.find((trip ) => trip.id === item.id);
+        if (itemIs){
+            setCartList(
+                cartList.map((trip ) => {
+                    return {...trip, cant: trip.cant + cant };
+                })
+                );
+        } else {
+            setCartList([
+                ...cartList,
+                {
+                id: item.id,
+                name: item.name,
+                stock: item.stock,
+                price: item.price,
+                img: item.img,
+                cant: cant
+            }])
+        }
+        
     }
 
     const removeItem = (id) => {
