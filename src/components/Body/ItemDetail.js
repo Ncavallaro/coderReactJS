@@ -1,34 +1,29 @@
 import '../../componentsCSS/Body/ItemDetail.css';
 import ItemCount from "./ItemCount";
-import Modal from "./Modal";
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Checkout from '../Header/Checkout';
+import { CartContext } from './CartContext';
 
 
 const ItemDetail = (props) => {
 
-    const [open, setOpen] = useState(false);
     const [cant, setCant] = useState();
+    const context = useContext(CartContext)
 
     const onAdd = (cant) => {
-        alert('¿ Estas seguro de agregar ' + cant + ' viajes ?')
+        alert('¿ Estas seguro de agregar ' + cant + ' viajes con id: '+ props.id+' ?')
         setCant(cant)
+        context.addToCart(props, cant)
     }
-
-    const handleClose = () => setOpen(false);
 
     useEffect(() => {
     },[cant])
-    //TODO: Cambiar ese alert por una modal
-    //TODO: Cuando le doy al boton ok de la modal, tengo que verificar si cant mas > 0 y ocultar el componenete y mostrar el componente Checkout
-    //TODO: Min 01:10:00
-    console.log(cant)
 
     return(
         <>
             <article className='itemDetail'>
                 <div className="tituloCenter">
-                    <h3>{props.title}</h3>
+                    <h3>{props.name}</h3>
                 </div>
                 <div className="imgDetail">
                     <div> 
@@ -52,7 +47,7 @@ const ItemDetail = (props) => {
 
         {
             cant === undefined || 0 ?
-            <ItemCount stock={5} initial={1} clicked={onAdd}/> : 
+            <ItemCount stock={props.stock} initial={1} clicked={onAdd}/> : 
             <Checkout /> 
         }
        
@@ -63,8 +58,3 @@ const ItemDetail = (props) => {
 }
 
 export default ItemDetail;
-
-
-/**
- *  <Modal open={open} onClose={handleClose} />
- */
