@@ -16,21 +16,31 @@ import img13 from '../../image/trips/13.png';
 import '../../componentsCSS/Header/Cart.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-
     const cartContext = useContext(CartContext);
-    const context = useContext(CartContext)
+    const costEnvio = 1;
 
-    console.log(cartContext.cartList)
     return(
         <div>
             <div className="tituloCenterCart">
                 <h2>Carrito</h2>
             </div>
-            <div className="btonDeleteAll">
-                <button onClick={() => context.clear()} >Vaciar carrito</button>
-            </div>
+            <Link to='/'>
+                <div className="btonGoBack">
+                    <button>Volver a comprar</button>
+                </div>
+            </Link>
+            {
+                (cartContext.cartList.length > 0 )
+                ? <div className="btonDeleteAll">
+                        <button onClick={() => cartContext.clear()} >Vaciar carrito</button>
+                  </div>
+                : <div className="btonDeleteAll">
+                        <h3 >El carrito esta vacio</h3>
+                  </div>
+            }
             {
                 cartContext.cartList.map (item => 
                     <article className='itemDetailCart'>
@@ -47,12 +57,23 @@ const Cart = () => {
                         </div>
                         <div className="gridCartCant">
                             <h3>Cantidad: <p>{item.cant}</p></h3>
-                            <Button className="btonDelete" variant="outlined"  startIcon={<DeleteIcon />} onClick={() => context.removeItem(item.id)}>
+                            <h3>Total: <p>{item.price * item.cant}</p></h3>
+                            <Button className="btonDelete" variant="outlined"  startIcon={<DeleteIcon />} onClick={() => cartContext.removeItem(item.id)}>
                                 Eliminar
                             </Button>
                         </div>
                     </article>            
             )
+        }
+        {
+            cartContext.cartList.length > 0 &&
+            <di className="cartTotal">
+                <h3><b>Total de la compra</b></h3>
+                <h3>Subtotal: <p>{" € " + cartContext.calculatePrice()} </p></h3>
+                <h3>Envio: <p>{" € " + costEnvio} </p></h3>
+                <h3>Total: <p>{" € " + cartContext.calculatePrice() + costEnvio} </p></h3>
+                <button id="finalizar">Finalizar compra</button>
+            </di>
         }
     </div>
     )

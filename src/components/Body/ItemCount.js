@@ -9,7 +9,6 @@ export default function ItemCount(props) {
    const increment = () => {
         if( cant < props.stock ){
             setCant(cant +1 )
-            
         }
     }
 
