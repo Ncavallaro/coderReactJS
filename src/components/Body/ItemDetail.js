@@ -11,7 +11,7 @@ const ItemDetail = (props) => {
     const context = useContext(CartContext)
 
     const onAdd = (cant) => {
-        alert('¿ Estas seguro de agregar ' + cant + ' viajes con id: '+ props.id+' ?')
+        alert('¿ Estas seguro de agregar ' + cant + ' viajes')
         setCant(cant)
         context.addToCart(props, cant)
     }
