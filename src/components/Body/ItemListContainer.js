@@ -1,31 +1,27 @@
 import ItemList from './ItemList';
-import Data from '../Data';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { collection, getDocs } from "firebase/firestore";
+import db from '../firebaseConfig';
+import { TripOriginOutlined } from '@mui/icons-material';
 
 const ItemListContainer = () => {
 
   const [trips , setTrips ] = useState("");
   const { idCategory } = useParams();
 
-      //implementacion de promesa
-        const listTrip = (timeout, data) => {
-            return new Promise ((resolve, reject) => {
-            setTimeout(() =>{
-                if (data) {
-                resolve(data);
-                } else {
-                reject('KO');
-                }
-            }, timeout)
-            });
-        };
-        
-    listTrip(2000, idCategory !== undefined ? Data.filter(data => data.category === idCategory):Data)
-        .then((data)=> setTrips(data))
-        .catch((error) => console.log(error));
-
+  useEffect (() => {
+    const firestoreFetch = async () => {
+      const querySnapshot = await getDocs (collection(db, "dataTrips"));
+      return querySnapshot.docs.map (document => ({
+        id: document.id,
+        ...document.data()
+      }))
+    }
+    firestoreFetch()
+      .then(trips => setTrips(idCategory !== undefined ? trips.filter(trip => trip.category === idCategory):trips))
+      .catch(error => console.log(error));
+  },[trips])
 
     //para actualizar el componenete
     useEffect(() => {
