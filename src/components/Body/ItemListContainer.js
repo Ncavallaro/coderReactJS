@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs } from "firebase/firestore";
 import db from '../firebaseConfig';
-import { TripOriginOutlined } from '@mui/icons-material';
 
 const ItemListContainer = () => {
 

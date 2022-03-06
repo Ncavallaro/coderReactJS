@@ -44,15 +44,11 @@ const ItemDetail = (props) => {
                     </div>
                 </div>
         </article>
-
         {
             cant === undefined || 0 ?
             <ItemCount stock={props.stock} initial={1} clicked={onAdd}/> : 
             <Checkout /> 
-        }
-       
-       
-        
+        }    
         </>
     )
 }
