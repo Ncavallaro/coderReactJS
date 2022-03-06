@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail";
-import Data from '../Data';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import db from '../firebaseConfig';
+import { doc, getDoc } from "firebase/firestore";
 
 
 const ItemDetailContainer = () => {
@@ -11,22 +12,19 @@ const ItemDetailContainer = () => {
     const [trips , setTrips ] = useState("");
     const { id } = useParams();
 
-      //implementacion de promesa
-        const listTrip = (timeout, data) => {
-            return new Promise ((resolve, reject) => {
-            setTimeout(() =>{
-                if (data) {
-                resolve(data);
-                } else {
-                reject('KO');
-                }
-            }, timeout)
-            });
-        };
-
-  listTrip(2000,Data)
-    .then((data)=> setTrips(data[id -1 ]) )
-    .catch((error) => console.log(error));
+    useEffect (() => {
+        const firestoreFetchDetail = async () => {
+            const docRef = doc(db, "dataTrips", id);
+            const docSnap = await getDoc(docRef);
+            return {
+                id:id,
+                ...docSnap.data()
+            }
+        }
+        firestoreFetchDetail()
+          .then(trip => setTrips(trip))
+          .catch(error => console.log(error));
+      },[trips])
 
     //para actualizar el componenete
     useEffect(() => {
