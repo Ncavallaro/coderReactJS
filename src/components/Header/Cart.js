@@ -1,26 +1,52 @@
 import { useContext } from "react";
 import { CartContext } from "../Body/CartContext";
-import img1 from '../../image/trips/1.png';
-import img2 from '../../image/trips/2.png';
-import img3 from '../../image/trips/3.png';
-import img4 from '../../image/trips/4.png';
-import img5 from '../../image/trips/5.png';
-import img6 from '../../image/trips/6.png';
-import img7 from '../../image/trips/7.png';
-import img8 from '../../image/trips/8.png';
-import img9 from '../../image/trips/9.png';
-import img10 from '../../image/trips/10.png';
-import img11 from '../../image/trips/11.png';
-import img12 from '../../image/trips/12.png';
-import img13 from '../../image/trips/13.png';
 import '../../componentsCSS/Header/Cart.css';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
+import { collection, serverTimestamp , doc , setDoc, updateDoc, increment } from 'firebase/firestore'
+import db from '../firebaseConfig'
 
 const Cart = () => {
     const cartContext = useContext(CartContext);
     const costEnvio = 1;
+
+    const createOrder = () => {
+        let order = {
+            buyer: {
+                email: 'nico@gmail.com',
+                name: 'Nicolas Cavallaro',
+                phone: '1122334455'
+            },
+            items: cartContext.cartList.map((it) => {
+                return { id:it.id, price:it.price, title: it.name, cant: it.cant};
+            }),
+            date: serverTimestamp(),
+            total: cartContext.calculatePrice()
+        }
+        console.log(order)
+
+        const createOrderInFirestore = async () => {
+            const newOrderRef = doc(collection(db, 'orders'));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        }
+
+        createOrderInFirestore()
+        .then((result) => {
+            alert('El codigo identificador de tu compra es: ' + result.id);
+            //Descuento la cantidad del stock
+            cartContext.cartList.map(async (item) => {
+              const itemRef = doc(db, "dataTrips", item.id);
+              await updateDoc(itemRef,{
+                  stock: increment(-item.cant)
+              })
+            })
+            //Limpio el carrito 
+            cartContext.clear(); 
+        })
+        .catch(error => console.log(error));        
+    }
 
     return(
         <div>
@@ -72,7 +98,7 @@ const Cart = () => {
                 <h3>Subtotal: <p>{" € " + cartContext.calculatePrice()} </p></h3>
                 <h3>Envio: <p>{" € " + costEnvio} </p></h3>
                 <h3>Total: <p>{" € " + cartContext.calculatePrice() + costEnvio} </p></h3>
-                <button id="finalizar">Finalizar compra</button>
+                <button id="finalizar" onClick={createOrder}>Finalizar compra</button>
             </di>
         }
     </div>
@@ -80,7 +106,3 @@ const Cart = () => {
 }
 
 export default Cart;
-
-/*
-<button onClick={context.removeItem(item.id)}> eliminar</button>
-*/
