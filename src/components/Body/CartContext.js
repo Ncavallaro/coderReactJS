@@ -1,7 +1,5 @@
 import { createContext, useState } from "react";
 
-
-
 export const CartContext = createContext([]);
 
 const CartContextProvider = ({children}) =>{
@@ -28,7 +26,6 @@ const CartContextProvider = ({children}) =>{
                 cant: cant
             }])
         }
-        
     }
 
     const removeItem = (id) => {
